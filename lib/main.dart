@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tandem/pages/dashboard/dashboardpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -63,6 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         page = FavoritesPage();
         break;
+      case 2:
+        page = DashboardPage();
+        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -80,6 +84,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 NavigationRailDestination(
                   icon: Icon(Icons.favorite),
                   label: Text('Favorites'),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.dashboard_sharp),
+                  label: Text('Dashboard'),
                 ),
               ],
               selectedIndex: selectedIndex, // ← Change to this.
