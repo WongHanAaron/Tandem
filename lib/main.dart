@@ -1,7 +1,8 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tandem/pages/dashboard/dashboardpage.dart';
+import 'package:tandem/pages/dashboard/dashboard_page.dart';
+import 'package:tandem/pages/task/kanban_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -59,10 +60,10 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = GeneratorPage();
+        page = DashboardPage();
         break;
       case 1:
-        page = FavoritesPage();
+        page = KanbanPage();
         break;
       case 2:
         page = DashboardPage();
@@ -78,21 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
               extended: false,
               destinations: const [
                 NavigationRailDestination(
-                  icon: Icon(Icons.home),
-                  label: Text('Home'),
-                ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.favorite),
-                  label: Text('Favorites'),
-                ),
-                NavigationRailDestination(
                   icon: Icon(Icons.dashboard_sharp),
                   label: Text('Dashboard'),
                 ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.task),
+                  label: Text('Tasks'),
+                ),
+                // NavigationRailDestination(
+                //   icon: Icon(Icons.dashboard_sharp),
+                //   label: Text('Dashboard'),
+                // ),
               ],
-              selectedIndex: selectedIndex, // ← Change to this.
+              selectedIndex: selectedIndex,
               onDestinationSelected: (value) {
-                // ↓ Replace print with this.
                 setState(() {
                   selectedIndex = value;
                 });
