@@ -9,11 +9,11 @@ class TaskList extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final style = theme.textTheme.displayMedium!.copyWith(
-      color: theme.colorScheme.onPrimary,
+      color: theme.colorScheme.primary,
     );
 
     return Card(
-      color: theme.colorScheme.onPrimary,
+      color: theme.colorScheme.background,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Text(name ?? "NA", style: style),

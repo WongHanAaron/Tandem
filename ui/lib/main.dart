@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Tandem',
         theme: DefaultThemeData.create(),
-        home: MyHomePage(),
+        home: const MyHomePage(),
       ),
     );
   }
@@ -57,11 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
+
+    final theme = Theme.of(context);
+
     return Scaffold(
       body: Row(
         children: [
           SafeArea(
             child: NavigationRail(
+              backgroundColor: theme.primaryColor,
+              selectedIconTheme: theme.iconTheme,
               extended: false,
               destinations: const [
                 NavigationRailDestination(
@@ -87,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(
             child: Container(
-              color: Theme.of(context).colorScheme.primaryContainer,
+              color: Theme.of(context).colorScheme.background,
               child: page,
             ),
           ),
