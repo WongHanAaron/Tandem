@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tandem/pages/dashboard/dashboard_page.dart';
 import 'package:tandem/pages/settings/settings_page.dart';
 import 'package:tandem/pages/task/kanban_page.dart';
+import 'package:tandem/services/theming/default_color_scheme.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         title: 'Tandem',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+          colorScheme: DefaultColorScheme.create(),
         ),
         home: MyHomePage(),
       ),

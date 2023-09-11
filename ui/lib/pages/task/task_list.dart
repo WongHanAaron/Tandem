@@ -13,7 +13,7 @@ class TaskList extends StatelessWidget {
     );
 
     return Card(
-      color: theme.colorScheme.onSecondary,
+      color: theme.colorScheme.onPrimary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Text(name ?? "NA", style: style),
