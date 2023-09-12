@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tandem/pages/dashboard/dashboard_page.dart';
@@ -65,8 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           SafeArea(
             child: NavigationRail(
-              backgroundColor: theme.primaryColor,
-              selectedIconTheme: theme.iconTheme,
+              backgroundColor: theme.colorScheme.primary,
+              selectedIconTheme: theme.primaryIconTheme
+                  .copyWith(color: theme.colorScheme.secondary),
+              unselectedIconTheme: theme.primaryIconTheme
+                  .copyWith(color: theme.colorScheme.secondary),
+              selectedLabelTextStyle: theme.textTheme.bodyLarge!
+                  .copyWith(color: theme.colorScheme.secondary),
+              labelType: NavigationRailLabelType.all,
+              groupAlignment: 0,
               extended: false,
               destinations: const [
                 NavigationRailDestination(
