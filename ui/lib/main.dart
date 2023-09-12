@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               destinations: const [
                 NavigationRailDestination(
                   icon: Icon(Icons.dashboard_sharp),
-                  label: Text('Dashboard'),
+                  label: Text('Top'),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.task),
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.settings),
-                  label: Text('Settings'),
+                  label: Text(''),
                 )
               ],
               selectedIndex: selectedIndex,

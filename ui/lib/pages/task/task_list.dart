@@ -12,26 +12,13 @@ class TaskList extends StatelessWidget {
 
     return Card(
       child: SizedBox(
-          width: 250,
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text(name!),
-              notificationPredicate: (ScrollNotification notification) {
-                return notification.depth == 1;
-              },
-              scrolledUnderElevation: 4.0,
-              shadowColor: Theme.of(context).shadowColor,
-              actions: [
-                IconButton(
-                  onPressed: () {
-                    // Add your onPressed code here!
-                  },
-                  icon: const Icon(Icons.more_horiz_rounded),
-                )
-              ],
-            ),
-            body: ListView(),
-          )),
+        width: 250,
+        child: Row(children: [
+          Column(
+            children: [Text(name!)],
+          )
+        ]),
+      ),
     );
   }
 }
