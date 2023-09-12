@@ -71,23 +71,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   .copyWith(color: theme.colorScheme.secondary),
               selectedLabelTextStyle: theme.textTheme.bodyLarge!
                   .copyWith(color: theme.colorScheme.secondary),
-              labelType: NavigationRailLabelType.all,
-              groupAlignment: 0,
+              labelType: NavigationRailLabelType.selected,
+              groupAlignment: -1,
               extended: false,
+              leading: const Icon(Icons.home),
               destinations: const [
                 NavigationRailDestination(
                   icon: Icon(Icons.dashboard_sharp),
-                  label: Text('Top'),
+                  label: Text('Home'),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.task),
                   label: Text('Tasks'),
-                ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.settings),
-                  label: Text(''),
                 )
               ],
+              trailing:
+                  IconButton(icon: Icon(Icons.more_horiz), onPressed: () => {}),
               selectedIndex: selectedIndex,
               onDestinationSelected: (value) {
                 setState(() {
