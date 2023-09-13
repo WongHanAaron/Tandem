@@ -10,7 +10,7 @@ class DashboardPage extends StatelessWidget {
           id: "Test Cell 1",
           column: 1,
           row: 1,
-          child: Row(children: [Text('Test')]))
+          child: Row(children: [Text('Dashboard Page')]))
     ], columns: 3, rows: 3);
   }
 }

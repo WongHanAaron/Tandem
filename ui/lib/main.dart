@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tandem/pages/calendar/calendar_page.dart';
 import 'package:tandem/pages/dashboard/dashboard_page.dart';
 import 'package:tandem/pages/settings/settings_page.dart';
 import 'package:tandem/pages/task/kanban_page.dart';
@@ -45,10 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
         page = DashboardPage();
         break;
       case 1:
-        page = KanbanPage();
+        page = CalendarPage();
         break;
       case 2:
-        page = DashboardPage();
+        page = KanbanPage();
         break;
       case 3:
         page = SettingsPage();
@@ -78,7 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
               destinations: const [
                 NavigationRailDestination(
                   icon: Icon(Icons.dashboard_sharp),
-                  label: Text('Home'),
+                  label: Text('Dashboard'),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.calendar_month),
+                  label: Text('Calendar'),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.task),
