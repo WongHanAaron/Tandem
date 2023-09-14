@@ -7,40 +7,46 @@ import 'isar_provider.dart';
 /// Provides state information about this journey
 abstract class IJourneyRepository {
   /// Startup the repository
-  void startUp();
+  Future startUp();
 
   /// Updates the repository with the specific property changed
-  void update(PropertyChange propertyChange);
+  Future update(PropertyChange propertyChange);
 
   /// Create a new user from this passed in object
-  void createNewUser(User user);
+  Future createNewUser(User user);
 
   /// Removes the user at the specified user id
-  void removeUser(int userId);
+  Future removeUser(int userId);
 
+  /// Gets the users, optionally at the id specified
   Future<List<User>> getUsers({List<int>? userIds});
+
+  /// Wipes the database of contents
+  Future clear();
 }
 
 class JourneyRepository extends IJourneyRepository {
   Isar? _isar;
 
   @override
-  void startUp() async {
+  Future startUp() async {
     _isar = await IsarProvider().get();
   }
 
   @override
-  void createNewUser(User user) {
-    _isar!.users.put(user);
+  Future createNewUser(User user) async {
+    await _isar!.writeTxn(() async {
+      await _isar!.users.put(user);
+    });
   }
 
   @override
-  void removeUser(int userId) {
-    _isar!.users.delete(userId);
+  Future removeUser(int userId) async {
+    await _isar!.users.delete(userId);
   }
 
   @override
-  void update(PropertyChange propertyChange) {
+  Future update(PropertyChange propertyChange) async {
     // TODO: implement update
   }
 
@@ -55,5 +61,10 @@ class JourneyRepository extends IJourneyRepository {
     } else {
       return _isar!.users.where().findAll();
     }
+  }
+
+  @override
+  Future clear() async {
+    await _isar!.close(deleteFromDisk: true);
   }
 }
