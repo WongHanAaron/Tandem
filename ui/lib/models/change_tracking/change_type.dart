@@ -1,2 +1,8 @@
 /// Describes the possible updates made to a document
-enum ChangeType { setValue, addValue, removeValue }
+enum ChangeType {
+  setValue,
+  addValue,
+  removeValue,
+  createDocument,
+  removeDocument
+}
