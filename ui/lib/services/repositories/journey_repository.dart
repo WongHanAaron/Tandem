@@ -36,12 +36,22 @@ class JourneyRepository extends IJourneyRepository {
   @override
   Future createNewUser(User user) async {
     await _isar!.writeTxn(() async {
-      await _isar!.users.put(user);
+      await _createNewUser(user);
     });
+  }
+
+  Future _createNewUser(User user) async {
+    await _isar!.users.put(user);
   }
 
   @override
   Future removeUser(int userId) async {
+    await _isar!.writeTxn(() async {
+      await _removeUser(userId);
+    });
+  }
+
+  Future _removeUser(int userId) async {
     await _isar!.users.delete(userId);
   }
 

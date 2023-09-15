@@ -1,11 +1,12 @@
 import 'package:isar/isar.dart';
-
+import 'package:tandem/services/reflector.dart';
 part 'user.g.dart';
 
 /// Describes a single user for this specific journey
 @collection
+@reflector
 class User {
-  int id = Isar.autoIncrement;
+  Id id = Isar.autoIncrement;
 
   String? firstName;
   String? middleName;
