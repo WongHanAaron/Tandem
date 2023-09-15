@@ -14,7 +14,7 @@ main() {
     var user = User();
     user.firstName = "Bob";
     user.lastName = "Ross";
-    await repo.createNewUser(user);
+    await repo.startWrite(() => repo.createNewUser(user));
 
     users = await repo.getUsers();
 
@@ -25,6 +25,39 @@ main() {
     expect(queriedSingle.length == 1, true);
 
     expect(queriedSingle.elementAt(0).id == users.elementAt(0).id, true);
+
+    repo.clearAndClose();
+  });
+
+  test("Remove User", () async {
+    final repo = await getRepository();
+
+    var users = await repo.getUsers();
+
+    expect(users.isEmpty, true);
+
+    var user = User();
+    user.firstName = "Bob";
+    user.lastName = "Ross";
+    await repo.startWrite(() => repo.createNewUser(user));
+
+    users = await repo.getUsers();
+
+    expect(users.length == 1, true);
+
+    var queriedSingle = await repo.getUsers(userIds: [users.elementAt(0).id]);
+
+    expect(queriedSingle.length == 1, true);
+
+    expect(queriedSingle.elementAt(0).id == users.elementAt(0).id, true);
+
+    await repo.startWrite(() => repo.removeUser(queriedSingle.elementAt(0).id));
+
+    users = await repo.getUsers();
+
+    expect(users.isEmpty, true);
+
+    repo.clearAndClose();
   });
 }
 
@@ -35,7 +68,7 @@ Future<IJourneyRepository> getRepository() async {
 
   await repo.startUp();
 
-  await repo.clear();
+  await repo.clearAndClose();
 
   repo = JourneyRepository();
 

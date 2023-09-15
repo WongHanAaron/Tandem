@@ -9,8 +9,8 @@ abstract class IJourneyRepository {
   /// Startup the repository
   Future startUp();
 
-  /// Updates the repository with the specific property changed
-  Future update(PropertyChange propertyChange);
+  /// Starts the operation that requires writing
+  Future startWrite<T>(Future<T> Function() callback, {bool silent = false});
 
   /// Create a new user from this passed in object
   Future createNewUser(User user);
@@ -22,7 +22,7 @@ abstract class IJourneyRepository {
   Future<List<User>> getUsers({List<int>? userIds});
 
   /// Wipes the database of contents
-  Future clear();
+  Future clearAndClose();
 }
 
 class JourneyRepository extends IJourneyRepository {
@@ -35,29 +35,12 @@ class JourneyRepository extends IJourneyRepository {
 
   @override
   Future createNewUser(User user) async {
-    await _isar!.writeTxn(() async {
-      await _createNewUser(user);
-    });
-  }
-
-  Future _createNewUser(User user) async {
     await _isar!.users.put(user);
   }
 
   @override
   Future removeUser(int userId) async {
-    await _isar!.writeTxn(() async {
-      await _removeUser(userId);
-    });
-  }
-
-  Future _removeUser(int userId) async {
     await _isar!.users.delete(userId);
-  }
-
-  @override
-  Future update(PropertyChange propertyChange) async {
-    // TODO: implement update
   }
 
   @override
@@ -74,7 +57,13 @@ class JourneyRepository extends IJourneyRepository {
   }
 
   @override
-  Future clear() async {
+  Future clearAndClose() async {
     await _isar!.close(deleteFromDisk: true);
+  }
+
+  @override
+  Future startWrite<T>(Future<T> Function() callback,
+      {bool silent = false}) async {
+    await _isar!.writeTxn(() => callback(), silent: silent);
   }
 }
