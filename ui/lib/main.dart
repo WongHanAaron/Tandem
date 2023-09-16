@@ -5,9 +5,10 @@ import 'package:tandem/pages/dashboard/dashboard_page.dart';
 import 'package:tandem/pages/settings/settings_page.dart';
 import 'package:tandem/pages/task/kanban_page.dart';
 import 'package:tandem/services/theming/default_theme_data.dart';
+import 'package:tandem/tandem_app.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(TandemApp());
 }
 
 class MyApp extends StatelessWidget {
