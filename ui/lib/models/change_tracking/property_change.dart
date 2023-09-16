@@ -1,14 +1,15 @@
 import 'package:equatable/equatable.dart';
+import 'package:isar/isar.dart';
 
 import 'change_type.dart';
 
 /// Contains information about the change made to an object in the system
 class PropertyChange extends Equatable {
   /// A unique id value for this change
-  final String id;
+  final Id id;
 
   /// The object id for the object being modified
-  final String objectId;
+  final Id objectId;
 
   /// The collection where this object can be found
   final String collectionName;
@@ -29,9 +30,9 @@ class PropertyChange extends Equatable {
   final DateTime dateModified;
 
   /// The user that made this change
-  final String userId;
+  final Id userId;
 
-  PropertyChange(
+  const PropertyChange(
       {required this.id,
       required this.objectId,
       required this.collectionName,
@@ -40,7 +41,7 @@ class PropertyChange extends Equatable {
       required this.dataType,
       required this.changeType,
       required this.dateModified,
-      required this.userId}) {}
+      required this.userId});
 
   @override
   List<Object?> get props => [

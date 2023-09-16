@@ -4,12 +4,8 @@ import 'package:tandem/models/user.dart';
 
 main() {
   test("Property Update Test", () {
-    final update = TypedPropertyUpdate<User>();
-
     final newName = "John";
-    update.updateMethod = (p) {
-      p.firstName = newName;
-    };
+    final update = TypedPropertyUpdate<User>((p) => p.firstName = newName);
 
     final user = User();
     user.firstName = "Bill";

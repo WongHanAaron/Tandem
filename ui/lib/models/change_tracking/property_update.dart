@@ -6,6 +6,10 @@ abstract class PropertyUpdate {
 
 /// Class for describing the change made to the class
 class TypedPropertyUpdate<TModel> extends PropertyUpdate {
+  TypedPropertyUpdate(Function(TModel) method) {
+    updateMethod = method;
+  }
+
   /// Contains the logic for performing the property update to the specified
   /// property
   Function(TModel)? updateMethod;
