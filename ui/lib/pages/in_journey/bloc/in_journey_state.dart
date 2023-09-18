@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class StartJourneyState extends Equatable {
+class InJourneyState extends Equatable {
   @override
   List<Object?> get props => [];
 }

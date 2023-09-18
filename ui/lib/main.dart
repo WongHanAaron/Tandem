@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tandem/pages/calendar/calendar_page.dart';
-import 'package:tandem/pages/dashboard/dashboard_page.dart';
-import 'package:tandem/pages/settings/settings_page.dart';
-import 'package:tandem/pages/task/kanban_page.dart';
+import 'package:tandem/pages/in_journey/calendar/calendar_page.dart';
+import 'package:tandem/pages/in_journey/dashboard/dashboard_page.dart';
+import 'package:tandem/pages/in_journey/settings/settings_page.dart';
+import 'package:tandem/pages/in_journey/task/kanban_page.dart';
 import 'package:tandem/services/theming/default_theme_data.dart';
 import 'package:tandem/tandem_app.dart';
 

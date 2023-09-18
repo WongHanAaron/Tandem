@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tandem/pages/task/task_list.dart';
+import 'package:tandem/pages/in_journey/task/task_list.dart';
 
 class KanbanPage extends StatelessWidget {
   @override
