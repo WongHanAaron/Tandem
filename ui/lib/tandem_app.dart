@@ -9,13 +9,7 @@ class TandemApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => StartJourneyBloc(),
-        child: MaterialApp(home: StartJourneyPage()));
-    // return MaterialApp(
-    //     title: "Tandem",
-    //     theme: DefaultThemeData.create(),
-    //     home: BlocProvider(
-    //       create: (context) => StartJourneyBloc(),
-    //       child: StartJourneyPage(),
-    //     ));
+        child: MaterialApp(
+            theme: DefaultThemeData.create(), home: StartJourneyPage()));
   }
 }
