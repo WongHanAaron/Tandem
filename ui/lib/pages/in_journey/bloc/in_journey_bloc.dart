@@ -3,10 +3,9 @@ import 'package:tandem/pages/in_journey/bloc/in_journey_event.dart';
 import 'package:tandem/pages/in_journey/bloc/in_journey_state.dart';
 
 class InJourneyBloc extends Bloc<InJourneyEvent, InJourneyState> {
-  InJourneyBloc() : super(InJourneyState()) {
+  InJourneyBloc() : super(InJourneyState(0)) {
     on<PageNavigationEvent>((event, emit) {
-      state.selectedPageIndex = event.selectedPageIndex;
-      emit(state);
+      emit(InJourneyState(event.selectedPageIndex));
     });
   }
 }
