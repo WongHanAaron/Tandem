@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tandem/pages/in_journey/page_base.dart';
 import 'package:tandem/pages/in_journey/task/task_list.dart';
 
-class KanbanPage extends StatelessWidget {
+class KanbanPage extends PageBase {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -12,4 +13,10 @@ class KanbanPage extends StatelessWidget {
       TaskList("Done")
     ]);
   }
+
+  @override
+  Widget getNavigationIcon(BuildContext context) => const Icon(Icons.task);
+
+  @override
+  Widget getNavigationLabel(BuildContext context) => const Text("Tasks");
 }

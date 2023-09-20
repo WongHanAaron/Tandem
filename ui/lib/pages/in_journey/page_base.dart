@@ -9,4 +9,9 @@ abstract class PageBase extends StatelessWidget {
 
   /// accesses the label for the navigation item
   Widget getNavigationLabel(BuildContext context);
+
+  NavigationRailDestination getNavigationRailDestination(BuildContext context) {
+    return NavigationRailDestination(
+        icon: getNavigationIcon(context), label: getNavigationLabel(context));
+  }
 }
