@@ -33,10 +33,14 @@ class InJourneyPage extends StatelessWidget {
                   labelType: NavigationRailLabelType.selected,
                   groupAlignment: -1,
                   extended: false,
-                  // leading: const Icon(Icons.home),
                   destinations: selectionButtons,
-                  // trailing: IconButton(
-                  //     icon: Icon(Icons.more_horiz), onPressed: () => {}),
+                  trailing: IconButton(
+                      icon: const Icon(Icons.more_horiz),
+                      onPressed: () => {
+                            context
+                                .read<InJourneyBloc>()
+                                .add(SettingsClickedEvent())
+                          }),
                   selectedIndex: state.selectedPageIndex,
                   onDestinationSelected: (value) {
                     context
