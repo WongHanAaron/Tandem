@@ -13,7 +13,7 @@ class InJourneyPage extends StatelessWidget {
     return BlocBuilder<InJourneyBloc, InJourneyState>(
       builder: (context, state) {
         final pages = state.getPages();
-        final page = pages.elementAt(state.selectedPageIndex);
+        final page = state.getCurrentPage();
         final theme = Theme.of(context);
         final selectionButtons =
             pages.map((p) => p.getNavigationRailDestination(context)).toList();
@@ -34,13 +34,6 @@ class InJourneyPage extends StatelessWidget {
                   groupAlignment: -1,
                   extended: false,
                   destinations: selectionButtons,
-                  trailing: IconButton(
-                      icon: const Icon(Icons.more_horiz),
-                      onPressed: () => {
-                            context
-                                .read<InJourneyBloc>()
-                                .add(SettingsClickedEvent())
-                          }),
                   selectedIndex: state.selectedPageIndex,
                   onDestinationSelected: (value) {
                     context
