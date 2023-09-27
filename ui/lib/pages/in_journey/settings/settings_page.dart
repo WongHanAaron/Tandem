@@ -8,7 +8,7 @@ class SettingsPage extends PageBase {
   Widget build(BuildContext context) {
     return Column(children: [
       const Text("User Settings"),
-      FloatingActionButton(onPressed: () {}),
+      FloatingActionButton(child: const Icon(Icons.add), onPressed: () {}),
     ]);
   }
 
