@@ -1,5 +1,1 @@
-
-class SettingsState
-{
-
-}
+class SettingsState {}
