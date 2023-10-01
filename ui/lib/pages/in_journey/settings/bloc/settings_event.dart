@@ -4,3 +4,5 @@ class SettingsEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
+
+class AddUserEvent extends SettingsEvent {}

@@ -6,5 +6,7 @@ import 'package:tandem/pages/in_journey/settings/bloc/settings_event.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   JourneyRepository repository;
 
-  SettingsBloc(this.repository) : super(SettingsState());
+  SettingsBloc(this.repository) : super(SettingsState()) {
+    on<AddUserEvent>((event, emit) {});
+  }
 }
