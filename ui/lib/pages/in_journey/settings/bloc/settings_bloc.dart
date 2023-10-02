@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:tandem/services/repositories/journey_repository.dart';
+import '../../../../models/user.dart';
 import 'settings_state.dart';
 import 'package:tandem/pages/in_journey/settings/bloc/settings_event.dart';
 
